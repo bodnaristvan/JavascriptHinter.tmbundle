@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>JavascriptHinter</title>
+		<link rel="stylesheet" href="file://{{assetPath}}/default-renderer.css" />
+		<script type="text/javascript">
+			var bundleVersion = '{{version}}';
+		</script>
+		<script type="text/javascript" src="file://{{assetPath}}/default-renderer.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="summary">
+				<a class="problem" href="txmt://open?url=file://{{config.targetFile}}" title="Open target file">
+					{{#if numErrors}}
+						JavascriptHinter found {{numErrors}} problems
+					{{else}}
+						Lint-free!
+					{{/if}}
+				</a>
+				<a href="https://github.com/bodnaristvan/JavascriptHinter.tmbundle" target="_blank" class="info" title="About JavascriptHinter.tmbundle">info</a>
+			</div>
+			<div class="additional" id="update-message" style="display: none;">
+				Update available! <a href="https://github.com/bodnaristvan/JavascriptHinter.tmbundle" target="_blank" id="update-link">Update now</a> or <a href="#" id="close-update-reminder">(remind me in 3 days)</a>
+			</div>
+		</header>
+
+		{{#if numErrors}}
+			<ul class="problems">
+				{{#each errors}}
+					<li>
+						<a class="problem" href="txmt://open?url=file://{{file}}&line={{line}}&column={{column}}">
+							<span class="location">Line {{line}}, column {{column}}</span>
+							<span class="desc">[{{hinttype}}] {{message}}</span>
+							<pre><code>{{evidence}}</code></pre>
+						</a>
+					</li>
+				{{/each}}
+			</ul>
+		{{else}}
+			<div class="results-success">
+				Lint-free!
+			</div>
+		{{/if}}
+	</body>
+</html>

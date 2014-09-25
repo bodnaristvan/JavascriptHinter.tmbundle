@@ -1,0 +1,1 @@
+Install node dependencies at first run, display error if node / jshint / jscs is not available.

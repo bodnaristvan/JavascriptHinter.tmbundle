@@ -1,0 +1,14 @@
+{
+	"name": "textmate-javascript-hinter",
+	"version": "0.0.1",
+	"description": "Textmate javascript hinter runner",
+	"repository" : {
+		"type" : "git",
+		"url" : "http://github.com/bodnaristvan/JavascriptHinter.git"
+	},
+	"dependencies": {
+		"node-getopt": "0.2.*",
+		"handlebars": "*",
+		"q": "1.0.x"
+	}
+}

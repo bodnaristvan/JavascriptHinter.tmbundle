@@ -1,0 +1,6 @@
+JavascriptHinter.tmbundle
+===============
+
+0.0.1 (2013-09-25)
+----------------
+* Initial release, forked from https://github.com/bodnaristvan/JSHint.tmbundle to add support for jscs checking
