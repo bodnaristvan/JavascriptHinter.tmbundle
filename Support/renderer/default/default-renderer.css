@@ -129,6 +129,16 @@ header .additional a {
 	background-color: #c0c0c0;
 	transition: none;
 }
+.problems .type {
+	margin-right: 5px;
+	float: left;
+}
+.problems .type-jscs .type strong {
+	color: orange;
+}
+.problems .type-jshint .type strong {
+	color: red;
+}
 
 /*** Success check ***/
 .results-success {

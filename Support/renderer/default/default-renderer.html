@@ -29,11 +29,12 @@
 		{{#if numErrors}}
 			<ul class="problems">
 				{{#each errors}}
-					<li>
+					<li class="type-{{hinttype}}">
 						<a class="problem" href="txmt://open?url=file://{{file}}&line={{line}}&column={{column}}">
 							<span class="location">Line {{line}}, column {{column}}</span>
-							<span class="desc">[{{hinttype}}] {{message}}</span>
-							<pre><code>{{evidence}}</code></pre>
+							<span class="type">[<strong>{{hinttype}}</strong>]</span>
+							<span class="desc">{{message}}</span>
+							<pre><code>{{#if evidence}}{{evidence}}{{else}}click here to see{{/if}}</code></pre>
 						</a>
 					</li>
 				{{/each}}
