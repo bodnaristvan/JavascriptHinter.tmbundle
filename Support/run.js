@@ -33,7 +33,7 @@ getJson = function (runners) {
  * Render data with the requested renderer
  */
 render = function (jsonData) {
-	var reporter;
+	var reporter, gutterReporter;
 	switch (cmdOpts.options.renderer) {
 	case 'tooltip':
 		reporter = require('./renderer/tooltip/renderer');
@@ -43,6 +43,10 @@ render = function (jsonData) {
 		break;
 	}
 	reporter(jsonData);
+
+	// render gutter
+	gutterReporter = require('./renderer/gutter/renderer');
+	gutterReporter(jsonData);
 };
 
 /**
