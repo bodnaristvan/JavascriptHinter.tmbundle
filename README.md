@@ -3,6 +3,9 @@ JavascriptHinter.tmbundle
 
 This is a TextMate 2 JSHint and JSCS plugin using the installed version of JSHint and JSCS.
 
+![Screenshot of JavascriptHinter.tmbundle running in TextMate with errors in the gutter -- note the visual glitches](https://cloud.githubusercontent.com/assets/710358/4801130/a284aa1c-5e2d-11e4-9a9a-2153961a88c8.png)
+
+
 ### Installation ###
 
 **Requirements:** 
