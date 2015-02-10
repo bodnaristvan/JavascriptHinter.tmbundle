@@ -14,7 +14,8 @@ module.exports = {
 	 */
 	process: function (files) {
 		var reporterDir = path.dirname(__filename),
+			fileDir = path.dirname(files[0]),
 			args = ['--reporter', reporterDir + '/jshint-json-reporter.js'].concat(files);
-		return getJsonOutput('jshint', args);
+		return getJsonOutput('jshint', args, {cwd: fileDir});
 	}
 };
