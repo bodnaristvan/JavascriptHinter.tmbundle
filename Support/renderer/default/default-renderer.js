@@ -4,7 +4,7 @@
  * Helper class that handles auto updating
  */
 var Updater = function () {
-	var updateUrl = 'https://raw.githubusercontent.com/bodnaristvan/JavascriptHinter.tmbundle/blob/master/Support/version.json',
+	var updateUrl = 'https://raw.githubusercontent.com/bodnaristvan/JavascriptHinter.tmbundle/master/Support/version.json',
 		updateFrequency = 86400000, // check for udpdates daily (1000 * 60 * 60 * 24)
 		compareVersions, checkUpdate, shouldRunCheck, showUpdateMessage, clearUpdateMessage;
 

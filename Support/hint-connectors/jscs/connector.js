@@ -14,7 +14,8 @@ module.exports = {
 	 */
 	process: function (files) {
 		var reporterDir = path.dirname(__filename),
+			fileDir = path.dirname(files[0]),
 			args = ['--reporter', reporterDir + '/jscs-json-reporter.js'].concat(files);
-		return getJsonOutput('jscs', args);
+		return getJsonOutput('jscs', args, {cwd: fileDir});
 	}
 };

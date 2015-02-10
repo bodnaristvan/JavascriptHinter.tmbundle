@@ -10,12 +10,13 @@ var Q = require('q'),
  * Get the json output from the linter
  * @param {String} runnable - Name of the executable to run
  * @param {Array} args - Command line arguments to pass
+ * @param {Object} options - Options to set on process.spawn
  * @returns {Q.Promise} Returns a promise that is resolved when executable finishes running
  */
-getJsonOutput = function (runnable, args) {
+getJsonOutput = function (runnable, args, options) {
 	var def = Q.defer(),
 		dataConcat = '',
-		proc = cp.spawn(runnable, args);
+		proc = cp.spawn(runnable, args, options || {});
 
 	proc.stdout.on('data', function (data) {
 		dataConcat = dataConcat + data;
