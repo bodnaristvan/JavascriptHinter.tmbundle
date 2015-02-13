@@ -4,7 +4,7 @@
 
 	var cp = require('child_process'),
 		Q = require('q'),
-		MATE = '/usr/local/bin/mate',
+		MATE = process.env.TM_MATE,
 		gutterImage = 'warning',
 		currentFile = process.env.TM_FILEPATH;
 
