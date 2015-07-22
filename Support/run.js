@@ -9,9 +9,16 @@ var Q = require('q'),
 getRunners = function () {
 	var jshintConnector = require('./hint-connectors/jshint/connector'),
 		jscsConnector = require('./hint-connectors/jscs/connector'),
-		files = cmdOpts.argv;
+		scsslintConnector = require('./hint-connectors/scsslint/connector'),
+		files = cmdOpts.argv,
+		connectors;
 
-	return [jshintConnector.process(files), jscsConnector.process(files)];
+	if (files[0].indexOf('.scss') !== -1) {
+		connectors = [scsslintConnector.process(files)];
+	} else {
+		connectors = [jshintConnector.process(files), jscsConnector.process(files)];
+	}
+	return connectors;
 };
 
 /**
@@ -45,8 +52,10 @@ render = function (jsonData) {
 	reporter(jsonData);
 
 	// render gutter
-	gutterReporter = require('./renderer/gutter/renderer');
-	gutterReporter(jsonData);
+	if (process.env.TM_MATE) {
+		gutterReporter = require('./renderer/gutter/renderer');
+		gutterReporter(jsonData);
+	}
 };
 
 /**
