@@ -1,5 +1,5 @@
 {{#if numErrors}}JavascriptHinter found {{numErrors}} problems:
 
-{{#each errors}}Line {{line}}: {{{message}}}
+{{#each errors}}[{{hinttype}}] Line {{line}}: {{{message}}}
 {{/each}}
 {{else}}Lint-free!{{/if}}
