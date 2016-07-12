@@ -15,10 +15,10 @@ module.exports = {
 	 * parsed to a JS object.
 	 */
 	process: function (files) {
-		var def = Q.defer();
-		var fileDir = path.dirname(files[0]);
-		var args = ['--format', 'JSON'].concat(files);
-		var originalOutput = getJsonOutput('scss-lint', args, {cwd: fileDir});
+		var def = Q.defer(),
+			fileDir = path.dirname(files[0]),
+			args = ['--format', 'JSON'].concat(files),
+			originalOutput = getJsonOutput('scss-lint', args, {cwd: fileDir});
 
 		/**
 		 * Original JSON output needs to be transformed so it can be used with the
