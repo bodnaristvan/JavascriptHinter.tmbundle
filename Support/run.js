@@ -11,6 +11,7 @@ getRunners = function () {
 		jscsConnector = require('./hint-connectors/jscs/connector'),
 		scsslintConnector = require('./hint-connectors/scsslint/connector'),
 		eslintConnector = require('./hint-connectors/eslint/connector'),
+		gjslintConnector = require('./hint-connectors/gjslint/connector'),
 		files = cmdOpts.argv,
 		connectors;
 
@@ -20,7 +21,8 @@ getRunners = function () {
 		connectors = [
 			jshintConnector.process(files),
 			eslintConnector.process(files),
-			jscsConnector.process(files)
+			jscsConnector.process(files),
+			gjslintConnector.process(files)
 		];
 	}
 	return connectors;
