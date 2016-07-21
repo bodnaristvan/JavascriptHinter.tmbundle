@@ -10,13 +10,20 @@ getRunners = function () {
 	var jshintConnector = require('./hint-connectors/jshint/connector'),
 		jscsConnector = require('./hint-connectors/jscs/connector'),
 		scsslintConnector = require('./hint-connectors/scsslint/connector'),
+		eslintConnector = require('./hint-connectors/eslint/connector'),
+		gjslintConnector = require('./hint-connectors/gjslint/connector'),
 		files = cmdOpts.argv,
 		connectors;
 
 	if (files[0].indexOf('.scss') !== -1) {
 		connectors = [scsslintConnector.process(files)];
 	} else {
-		connectors = [jshintConnector.process(files), jscsConnector.process(files)];
+		connectors = [
+			jshintConnector.process(files),
+			eslintConnector.process(files),
+			jscsConnector.process(files),
+			gjslintConnector.process(files)
+		];
 	}
 	return connectors;
 };
